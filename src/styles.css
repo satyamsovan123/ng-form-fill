@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* styles.css */
+
+.document-section {
+  border: 2px black solid;
+  padding: 5%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.document-title {
+  font-size: 48px;
+}
+
+.logo {
+  width: 75px;
+  height: 60px;
+}
+
+.divider {
+  border: 2px black solid;
+}
+
+.content {
+  font-size: 24px;
+}
+
+.highlight {
+  font-weight: bolder;
+}
+
+.bold-text {
+  font-weight: bolder;
+}
+
+.footer {
+  font-size: 24px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-name,
+.copyright {
+  font-weight: bolder;
+}
