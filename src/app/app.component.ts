@@ -134,9 +134,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     win.print();
   }
 
-  onFileChange(event: any) {
+  async onFileChange(event: any) {
     const fileSizeInMB = event.target.files[0].size / (1024 * 1024);
     this.data.file = event.target.files[0];
+
     if (fileSizeInMB > 2) {
       this.message = 'File size should be less than 2MB.';
       this.data.file = null;
@@ -144,5 +145,25 @@ export class AppComponent implements OnInit, AfterViewInit {
     } else {
       this.message = '';
     }
+
+    const base64String = await this.convertToBase64(this.data.file);
+    console.log(base64String);
+    console.log('123');
+  }
+
+  convertToBase64(file: any): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        const base64String = reader.result as string;
+        resolve(base64String);
+      };
+
+      reader.onerror = (error) => {
+        reject(error);
+      };
+    });
   }
 }
